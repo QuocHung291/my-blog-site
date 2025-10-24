@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{.Title}} | {{.Site.Title}} </title>
+    <link rel="stylesheet" href="/css/style.css">  
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <div class="site-title">{{.Site.Title}} </div>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About</a> 
+                <a href="/blog/">Blog</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" >
+        {{block "main" .}} {{end}}
+    </main>
+
+    <footer>
+        <p>© {{now.Year}} {{.Site.Title}} | Build with Hugo </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Java Phần 3: Kiến Thức Cơ Bản Và Hướng Đối Tượng | Blog Của Tôi </title>
+    <link rel="stylesheet" href="../../css/style.css">  
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <div class="site-title">Blog Của Tôi </div>
+
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about">About</a> 
+                <a href="../../blog/">Blog</a>
+                <a href="../../contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" >
+        
+<div class="page-content">
+    <h1> Java Phần 3: Kiến Thức Cơ Bản Và Hướng Đối Tượng </h1>
+    <p><em> August 22, 2025 </em></p>
+    
+    <img src="../../image/1-img.jpg" alt="Java Phần 3: Kiến Thức Cơ Bản Và Hướng Đối Tượng">
+    
+    <p>Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.</p>
+<p>Bài viết này sẽ giúp bạn hiểu sâu hơn về các khái niệm quan trọng trong Java.</p>
+<h2 id="1-collections-framework">1. Collections Framework</h2>
+<h3 id="11-list-interface">1.1. List Interface</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// ArrayList - Mảng động</span>
+</span></span><span style="display:flex;"><span>ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> danhSach <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>danhSach.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Java&#34;</span>);
+</span></span><span style="display:flex;"><span>danhSach.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Python&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// LinkedList - Danh sách liên kết</span>
+</span></span><span style="display:flex;"><span>LinkedList<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> linkedList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>linkedList.<span style="color:#a6e22e">addFirst</span>(1);  <span style="color:#75715e">// Thêm vào đầu</span>
+</span></span><span style="display:flex;"><span>linkedList.<span style="color:#a6e22e">addLast</span>(2);   <span style="color:#75715e">// Thêm vào cuối</span>
+</span></span></code></pre></div><h3 id="12-set-interface">1.2. Set Interface</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// HashSet - Tập hợp không trùng lặp</span>
+</span></span><span style="display:flex;"><span>HashSet<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>set.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Java&#34;</span>);  <span style="color:#75715e">// Thêm phần tử</span>
+</span></span><span style="display:flex;"><span>set.<span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;Java&#34;</span>);  <span style="color:#75715e">// Kiểm tra tồn tại</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// TreeSet - Tập hợp có thứ tự</span>
+</span></span><span style="display:flex;"><span>TreeSet<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> treeSet <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>treeSet.<span style="color:#a6e22e">add</span>(5);
+</span></span><span style="display:flex;"><span>treeSet.<span style="color:#a6e22e">add</span>(1);  <span style="color:#75715e">// Tự động sắp xếp</span>
+</span></span></code></pre></div><h3 id="13-map-interface">1.3. Map Interface</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// HashMap - Bảng băm</span>
+</span></span><span style="display:flex;"><span>HashMap<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>map.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Java&#34;</span>, 1995);
+</span></span><span style="display:flex;"><span>map.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Python&#34;</span>, 1991);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// TreeMap - Map có thứ tự</span>
+</span></span><span style="display:flex;"><span>TreeMap<span style="color:#f92672">&lt;</span>String, Double<span style="color:#f92672">&gt;</span> grades <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeMap<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>grades.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Alice&#34;</span>, 9.<span style="color:#a6e22e">5</span>);
+</span></span><span style="display:flex;"><span>grades.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;Bob&#34;</span>, 8.<span style="color:#a6e22e">7</span>);
+</span></span></code></pre></div><h2 id="2-luồng-threads-và-đa-luồng">2. Luồng (Threads) và Đa Luồng</h2>
+<h3 id="21-tạo-thread">2.1. Tạo Thread</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Cách 1: Kế thừa Thread</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyThread</span> <span style="color:#66d9ef">extends</span> Thread {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Thread đang chạy&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Cách 2: Implements Runnable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyRunnable</span> <span style="color:#66d9ef">implements</span> Runnable {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Runnable đang chạy&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="22-đồng-bộ-hóa-synchronization">2.2. Đồng Bộ Hóa (Synchronization)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TaiKhoan</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> soDu <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Phương thức đồng bộ</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">nap</span>(<span style="color:#66d9ef">int</span> tien) {
+</span></span><span style="display:flex;"><span>        soDu <span style="color:#f92672">+=</span> tien;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">rut</span>(<span style="color:#66d9ef">int</span> tien) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (soDu <span style="color:#f92672">&gt;=</span> tien) {
+</span></span><span style="display:flex;"><span>            soDu <span style="color:#f92672">-=</span> tien;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="3-stream-api-và-lambda-expressions">3. Stream API và Lambda Expressions</h2>
+<h3 id="31-lambda-expressions">3.1. Lambda Expressions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Trước Java 8</span>
+</span></span><span style="display:flex;"><span>Comparator<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> comp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span>(String s1, String s2) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> s1.<span style="color:#a6e22e">compareTo</span>(s2);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Với Lambda</span>
+</span></span><span style="display:flex;"><span>Comparator<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> comp <span style="color:#f92672">=</span> (s1, s2) <span style="color:#f92672">-&gt;</span> s1.<span style="color:#a6e22e">compareTo</span>(s2);
+</span></span></code></pre></div><h3 id="32-stream-operations">3.2. Stream Operations</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> numbers <span style="color:#f92672">=</span> Arrays.<span style="color:#a6e22e">asList</span>(1, 2, 3, 4, 5, 6);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Lọc số chẵn và tính tổng</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> numbers.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(n <span style="color:#f92672">-&gt;</span> n <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0)    <span style="color:#75715e">// Lọc số chẵn</span>
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">mapToInt</span>(Integer::intValue) <span style="color:#75715e">// Chuyển đổi</span>
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">sum</span>();                      <span style="color:#75715e">// Tính tổng</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Sắp xếp và chuyển đổi</span>
+</span></span><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> sorted <span style="color:#f92672">=</span> numbers.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">sorted</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">map</span>(String::valueOf)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">toList</span>());
+</span></span></code></pre></div><h2 id="4-java-io-và-nio">4. Java IO và NIO</h2>
+<h3 id="41-đọc-file">4.1. Đọc File</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Sử dụng BufferedReader</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> (BufferedReader reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader(<span style="color:#66d9ef">new</span> FileReader(<span style="color:#e6db74">&#34;file.txt&#34;</span>))) {
+</span></span><span style="display:flex;"><span>    String line;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> ((line <span style="color:#f92672">=</span> reader.<span style="color:#a6e22e">readLine</span>()) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(line);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>    e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Sử dụng Files (NIO)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lines <span style="color:#f92672">=</span> Files.<span style="color:#a6e22e">readAllLines</span>(Paths.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;file.txt&#34;</span>));
+</span></span><span style="display:flex;"><span>    lines.<span style="color:#a6e22e">forEach</span>(System.<span style="color:#a6e22e">out</span>::println);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>    e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="42-ghi-file">4.2. Ghi File</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Sử dụng BufferedWriter</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> (BufferedWriter writer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedWriter(<span style="color:#66d9ef">new</span> FileWriter(<span style="color:#e6db74">&#34;output.txt&#34;</span>))) {
+</span></span><span style="display:flex;"><span>    writer.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#34;Dòng văn bản mới&#34;</span>);
+</span></span><span style="display:flex;"><span>    writer.<span style="color:#a6e22e">newLine</span>();
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>    e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Sử dụng Files (NIO)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    Files.<span style="color:#a6e22e">write</span>(Paths.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;output.txt&#34;</span>), 
+</span></span><span style="display:flex;"><span>                Arrays.<span style="color:#a6e22e">asList</span>(<span style="color:#e6db74">&#34;Dòng 1&#34;</span>, <span style="color:#e6db74">&#34;Dòng 2&#34;</span>), 
+</span></span><span style="display:flex;"><span>                StandardCharsets.<span style="color:#a6e22e">UTF_8</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>    e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="5-reflection-api">5. Reflection API</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Lấy thông tin về class</span>
+</span></span><span style="display:flex;"><span>Class<span style="color:#f92672">&lt;?&gt;</span> clazz <span style="color:#f92672">=</span> String.<span style="color:#a6e22e">class</span>;
+</span></span><span style="display:flex;"><span>Method<span style="color:#f92672">[]</span> methods <span style="color:#f92672">=</span> clazz.<span style="color:#a6e22e">getDeclaredMethods</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Tạo đối tượng mới</span>
+</span></span><span style="display:flex;"><span>Constructor<span style="color:#f92672">&lt;?&gt;</span> constructor <span style="color:#f92672">=</span> clazz.<span style="color:#a6e22e">getConstructor</span>();
+</span></span><span style="display:flex;"><span>Object instance <span style="color:#f92672">=</span> constructor.<span style="color:#a6e22e">newInstance</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Gọi phương thức</span>
+</span></span><span style="display:flex;"><span>Method method <span style="color:#f92672">=</span> clazz.<span style="color:#a6e22e">getMethod</span>(<span style="color:#e6db74">&#34;length&#34;</span>);
+</span></span><span style="display:flex;"><span>Object result <span style="color:#f92672">=</span> method.<span style="color:#a6e22e">invoke</span>(instance);
+</span></span></code></pre></div><h2 id="6-unit-testing-với-junit">6. Unit Testing với JUnit</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testAdd</span>() {
+</span></span><span style="display:flex;"><span>    Calculator calc <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Calculator();
+</span></span><span style="display:flex;"><span>    assertEquals(4, calc.<span style="color:#a6e22e">add</span>(2, 2));
+</span></span><span style="display:flex;"><span>    assertEquals(0, calc.<span style="color:#a6e22e">add</span>(<span style="color:#f92672">-</span>1, 1));
+</span></span><span style="display:flex;"><span>    assertEquals(<span style="color:#f92672">-</span>2, calc.<span style="color:#a6e22e">add</span>(<span style="color:#f92672">-</span>1, <span style="color:#f92672">-</span>1));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="7-design-patterns-phổ-biến">7. Design Patterns Phổ Biến</h2>
+<h3 id="71-singleton-pattern">7.1. Singleton Pattern</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Singleton</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Singleton instance;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Singleton</span>() {}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> Singleton <span style="color:#a6e22e">getInstance</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (instance <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Singleton();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> instance;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="72-factory-pattern">7.2. Factory Pattern</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">implements</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Gâu gâu!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">implements</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeSound</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Meo meo!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnimalFactory</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Animal <span style="color:#a6e22e">createAnimal</span>(String type) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#34;dog&#34;</span>.<span style="color:#a6e22e">equalsIgnoreCase</span>(type)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#34;cat&#34;</span>.<span style="color:#a6e22e">equalsIgnoreCase</span>(type)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Cat();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="kết-luận">Kết Luận</h2>
+<p>Các chủ đề nâng cao trong Java mở ra nhiều khả năng mạnh mẽ cho việc phát triển ứng dụng. Việc nắm vững những kiến thức này sẽ giúp bạn:</p>
+<ul>
+<li>Xây dựng ứng dụng đa luồng hiệu quả</li>
+<li>Quản lý dữ liệu tốt hơn với Collections Framework</li>
+<li>Viết code ngắn gọn và dễ đọc hơn với Lambda và Stream</li>
+<li>Xử lý file và IO một cách linh hoạt</li>
+<li>Kiểm thử ứng dụng chuyên nghiệp</li>
+<li>Áp dụng các mẫu thiết kế phù hợp</li>
+</ul>
+<p>Hãy tiếp tục thực hành và áp dụng những kiến thức này vào các dự án thực tế để trở thành một lập trình viên Java chuyên nghiệp!</p>
+</div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Blog Của Tôi | Build with Hugo </p>
+    </footer>
+</body>
+</html>

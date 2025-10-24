@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Java Phần 2: Kiến Thức Cơ Bản Và Hướng Đối Tượng | Blog Của Tôi </title>
+    <link rel="stylesheet" href="../../css/style.css">  
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <div class="site-title">Blog Của Tôi </div>
+
+            <nav>
+                <a href="../../">Home</a>
+                <a href="../../about">About</a> 
+                <a href="../../blog/">Blog</a>
+                <a href="../../contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" >
+        
+<div class="page-content">
+    <h1> Java Phần 2: Kiến Thức Cơ Bản Và Hướng Đối Tượng </h1>
+    <p><em> August 23, 2025 </em></p>
+    
+    <img src="../../image/1-img.jpg" alt="Java Phần 2: Kiến Thức Cơ Bản Và Hướng Đối Tượng">
+    
+    <p>Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.</p>
+<p>Bài viết này sẽ hướng dẫn bạn xây dựng một ứng dụng quản lý thư viện hoàn chỉnh bằng Java.</p>
+<h2 id="1-thiết-kế-cơ-sở-dữ-liệu">1. Thiết Kế Cơ Sở Dữ Liệu</h2>
+<h3 id="11-mô-hình-erd">1.1. Mô Hình ERD</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Sách (ID, Tên, Tác giả, NXB, Năm XB, Số lượng)
+</span></span><span style="display:flex;"><span>   ↑
+</span></span><span style="display:flex;"><span>   | 1:n
+</span></span><span style="display:flex;"><span>Mượn Sách (ID, Mã độc giả, Mã sách, Ngày mượn, Ngày trả)
+</span></span><span style="display:flex;"><span>   |
+</span></span><span style="display:flex;"><span>   ↓ 1:n
+</span></span><span style="display:flex;"><span>Độc Giả (ID, Họ tên, Địa chỉ, Email, SĐT)
+</span></span></code></pre></div><h3 id="12-cấu-trúc-project">1.2. Cấu Trúc Project</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>library-management/
+</span></span><span style="display:flex;"><span>├── src/
+</span></span><span style="display:flex;"><span>│   ├── main/
+</span></span><span style="display:flex;"><span>│   │   ├── java/
+</span></span><span style="display:flex;"><span>│   │   │   ├── models/
+</span></span><span style="display:flex;"><span>│   │   │   ├── dao/
+</span></span><span style="display:flex;"><span>│   │   │   ├── services/
+</span></span><span style="display:flex;"><span>│   │   │   └── ui/
+</span></span><span style="display:flex;"><span>│   │   └── resources/
+</span></span><span style="display:flex;"><span>│   └── test/
+</span></span><span style="display:flex;"><span>├── pom.xml
+</span></span><span style="display:flex;"><span>└── README.md
+</span></span></code></pre></div><h2 id="2-xây-dựng-các-model">2. Xây Dựng Các Model</h2>
+<h3 id="21-book-class">2.1. Book Class</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String title;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String author;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String publisher;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> publishYear;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> quantity;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Book</span>(<span style="color:#66d9ef">int</span> id, String title, String author, 
+</span></span><span style="display:flex;"><span>                String publisher, <span style="color:#66d9ef">int</span> publishYear, <span style="color:#66d9ef">int</span> quantity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> author;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">publisher</span> <span style="color:#f92672">=</span> publisher;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">publishYear</span> <span style="color:#f92672">=</span> publishYear;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">quantity</span> <span style="color:#f92672">=</span> quantity;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getters and Setters</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getId</span>() { <span style="color:#66d9ef">return</span> id; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span>(<span style="color:#66d9ef">int</span> id) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id; }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ... các getter/setter khác</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="22-member-class">2.2. Member Class</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Member</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String fullName;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String address;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String phone;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Member</span>(<span style="color:#66d9ef">int</span> id, String fullName, String address,
+</span></span><span style="display:flex;"><span>                 String email, String phone) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">fullName</span> <span style="color:#f92672">=</span> fullName;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">=</span> address;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> email;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">phone</span> <span style="color:#f92672">=</span> phone;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Getters and Setters</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="3-data-access-objects-dao">3. Data Access Objects (DAO)</h2>
+<h3 id="31-database-connection">3.1. Database Connection</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseConnection</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/library&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String USER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;root&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;password&#34;</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Connection <span style="color:#a6e22e">getConnection</span>() <span style="color:#66d9ef">throws</span> SQLException {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> DriverManager.<span style="color:#a6e22e">getConnection</span>(URL, USER, PASSWORD);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="32-bookdao">3.2. BookDAO</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookDAO</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addBook</span>(Book book) <span style="color:#66d9ef">throws</span> SQLException {
+</span></span><span style="display:flex;"><span>        String sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INSERT INTO books (title, author, publisher, &#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;publish_year, quantity) VALUES (?, ?, ?, ?, ?)&#34;</span>;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (Connection conn <span style="color:#f92672">=</span> DatabaseConnection.<span style="color:#a6e22e">getConnection</span>();
+</span></span><span style="display:flex;"><span>             PreparedStatement pstmt <span style="color:#f92672">=</span> conn.<span style="color:#a6e22e">prepareStatement</span>(sql)) {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setString</span>(1, book.<span style="color:#a6e22e">getTitle</span>());
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setString</span>(2, book.<span style="color:#a6e22e">getAuthor</span>());
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setString</span>(3, book.<span style="color:#a6e22e">getPublisher</span>());
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setInt</span>(4, book.<span style="color:#a6e22e">getPublishYear</span>());
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setInt</span>(5, book.<span style="color:#a6e22e">getQuantity</span>());
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">executeUpdate</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">searchBooks</span>(String keyword) <span style="color:#66d9ef">throws</span> SQLException {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> books <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        String sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT * FROM books WHERE title LIKE ? OR author LIKE ?&#34;</span>;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (Connection conn <span style="color:#f92672">=</span> DatabaseConnection.<span style="color:#a6e22e">getConnection</span>();
+</span></span><span style="display:flex;"><span>             PreparedStatement pstmt <span style="color:#f92672">=</span> conn.<span style="color:#a6e22e">prepareStatement</span>(sql)) {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setString</span>(1, <span style="color:#e6db74">&#34;%&#34;</span> <span style="color:#f92672">+</span> keyword <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span><span style="display:flex;"><span>            pstmt.<span style="color:#a6e22e">setString</span>(2, <span style="color:#e6db74">&#34;%&#34;</span> <span style="color:#f92672">+</span> keyword <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            ResultSet rs <span style="color:#f92672">=</span> pstmt.<span style="color:#a6e22e">executeQuery</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (rs.<span style="color:#a6e22e">next</span>()) {
+</span></span><span style="display:flex;"><span>                books.<span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">new</span> Book(
+</span></span><span style="display:flex;"><span>                    rs.<span style="color:#a6e22e">getInt</span>(<span style="color:#e6db74">&#34;id&#34;</span>),
+</span></span><span style="display:flex;"><span>                    rs.<span style="color:#a6e22e">getString</span>(<span style="color:#e6db74">&#34;title&#34;</span>),
+</span></span><span style="display:flex;"><span>                    rs.<span style="color:#a6e22e">getString</span>(<span style="color:#e6db74">&#34;author&#34;</span>),
+</span></span><span style="display:flex;"><span>                    rs.<span style="color:#a6e22e">getString</span>(<span style="color:#e6db74">&#34;publisher&#34;</span>),
+</span></span><span style="display:flex;"><span>                    rs.<span style="color:#a6e22e">getInt</span>(<span style="color:#e6db74">&#34;publish_year&#34;</span>),
+</span></span><span style="display:flex;"><span>                    rs.<span style="color:#a6e22e">getInt</span>(<span style="color:#e6db74">&#34;quantity&#34;</span>)
+</span></span><span style="display:flex;"><span>                ));
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> books;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="4-business-logic-layer">4. Business Logic Layer</h2>
+<h3 id="41-libraryservice">4.1. LibraryService</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LibraryService</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BookDAO bookDAO;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> MemberDAO memberDAO;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BorrowingDAO borrowingDAO;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LibraryService</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bookDAO</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BookDAO();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">memberDAO</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MemberDAO();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">borrowingDAO</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BorrowingDAO();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">borrowBook</span>(<span style="color:#66d9ef">int</span> memberId, <span style="color:#66d9ef">int</span> bookId) 
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throws</span> LibraryException {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Kiểm tra tồn tại sách và độc giả</span>
+</span></span><span style="display:flex;"><span>            Book book <span style="color:#f92672">=</span> bookDAO.<span style="color:#a6e22e">getBookById</span>(bookId);
+</span></span><span style="display:flex;"><span>            Member member <span style="color:#f92672">=</span> memberDAO.<span style="color:#a6e22e">getMemberById</span>(memberId);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (book <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> member <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> LibraryException(<span style="color:#e6db74">&#34;Sách hoặc độc giả không tồn tại&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Kiểm tra số lượng sách</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (book.<span style="color:#a6e22e">getQuantity</span>() <span style="color:#f92672">&lt;=</span> 0) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> LibraryException(<span style="color:#e6db74">&#34;Sách đã hết&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Tạo phiếu mượn</span>
+</span></span><span style="display:flex;"><span>            BorrowingRecord record <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BorrowingRecord(
+</span></span><span style="display:flex;"><span>                memberId, bookId, LocalDate.<span style="color:#a6e22e">now</span>());
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            borrowingDAO.<span style="color:#a6e22e">createBorrowingRecord</span>(record);
+</span></span><span style="display:flex;"><span>            book.<span style="color:#a6e22e">setQuantity</span>(book.<span style="color:#a6e22e">getQuantity</span>() <span style="color:#f92672">-</span> 1);
+</span></span><span style="display:flex;"><span>            bookDAO.<span style="color:#a6e22e">updateBook</span>(book);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (SQLException e) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> LibraryException(<span style="color:#e6db74">&#34;Lỗi khi mượn sách: &#34;</span> <span style="color:#f92672">+</span> e.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="5-giao-diện-người-dùng-với-javafx">5. Giao Diện Người Dùng với JavaFX</h2>
+<h3 id="51-main-application">5.1. Main Application</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LibraryApp</span> <span style="color:#66d9ef">extends</span> Application {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span>(Stage primaryStage) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            FXMLLoader loader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FXMLLoader(
+</span></span><span style="display:flex;"><span>                getClass().<span style="color:#a6e22e">getResource</span>(<span style="color:#e6db74">&#34;/fxml/main.fxml&#34;</span>));
+</span></span><span style="display:flex;"><span>            Parent root <span style="color:#f92672">=</span> loader.<span style="color:#a6e22e">load</span>();
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            Scene scene <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scene(root);
+</span></span><span style="display:flex;"><span>            primaryStage.<span style="color:#a6e22e">setTitle</span>(<span style="color:#e6db74">&#34;Quản Lý Thư Viện&#34;</span>);
+</span></span><span style="display:flex;"><span>            primaryStage.<span style="color:#a6e22e">setScene</span>(scene);
+</span></span><span style="display:flex;"><span>            primaryStage.<span style="color:#a6e22e">show</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        launch(args);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="52-controller">5.2. Controller</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@FXML</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> TableView<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> bookTable;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@FXML</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> TextField searchField;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> LibraryService libraryService;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@FXML</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initialize</span>() {
+</span></span><span style="display:flex;"><span>        libraryService <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LibraryService();
+</span></span><span style="display:flex;"><span>        setupTableColumns();
+</span></span><span style="display:flex;"><span>        loadBooks();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@FXML</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleSearch</span>() {
+</span></span><span style="display:flex;"><span>        String keyword <span style="color:#f92672">=</span> searchField.<span style="color:#a6e22e">getText</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> books <span style="color:#f92672">=</span> libraryService.<span style="color:#a6e22e">searchBooks</span>(keyword);
+</span></span><span style="display:flex;"><span>            bookTable.<span style="color:#a6e22e">getItems</span>().<span style="color:#a6e22e">setAll</span>(books);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (LibraryException e) {
+</span></span><span style="display:flex;"><span>            showError(<span style="color:#e6db74">&#34;Lỗi tìm kiếm&#34;</span>, e.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="6-xử-lý-giao-dịch-và-logging">6. Xử Lý Giao Dịch và Logging</h2>
+<h3 id="61-transaction-management">6.1. Transaction Management</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TransactionManager</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">executeInTransaction</span>(
+</span></span><span style="display:flex;"><span>            Connection conn, 
+</span></span><span style="display:flex;"><span>            TransactionBlock block) <span style="color:#66d9ef">throws</span> SQLException {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> autoCommit <span style="color:#f92672">=</span> conn.<span style="color:#a6e22e">getAutoCommit</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            conn.<span style="color:#a6e22e">setAutoCommit</span>(<span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>            block.<span style="color:#a6e22e">execute</span>();
+</span></span><span style="display:flex;"><span>            conn.<span style="color:#a6e22e">commit</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (SQLException e) {
+</span></span><span style="display:flex;"><span>            conn.<span style="color:#a6e22e">rollback</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> e;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>            conn.<span style="color:#a6e22e">setAutoCommit</span>(autoCommit);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="62-logging-với-log4j">6.2. Logging với Log4j</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LibraryLogger</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger logger <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>        LogManager.<span style="color:#a6e22e">getLogger</span>(LibraryLogger.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">logInfo</span>(String message) {
+</span></span><span style="display:flex;"><span>        logger.<span style="color:#a6e22e">info</span>(message);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">logError</span>(String message, Throwable t) {
+</span></span><span style="display:flex;"><span>        logger.<span style="color:#a6e22e">error</span>(message, t);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="7-testing">7. Testing</h2>
+<h3 id="71-unit-testing-với-junit">7.1. Unit Testing với JUnit</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookServiceTest</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BookService bookService;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> BookDAO mockBookDAO;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Before</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setup</span>() {
+</span></span><span style="display:flex;"><span>        mockBookDAO <span style="color:#f92672">=</span> mock(BookDAO.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>        bookService <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BookService(mockBookDAO);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testAddBook</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        Book book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book(1, <span style="color:#e6db74">&#34;Test Book&#34;</span>, <span style="color:#e6db74">&#34;Test Author&#34;</span>, 
+</span></span><span style="display:flex;"><span>                           <span style="color:#e6db74">&#34;Test Publisher&#34;</span>, 2023, 5);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        when(mockBookDAO.<span style="color:#a6e22e">addBook</span>(book)).<span style="color:#a6e22e">thenReturn</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        assertTrue(bookService.<span style="color:#a6e22e">addBook</span>(book));
+</span></span><span style="display:flex;"><span>        verify(mockBookDAO).<span style="color:#a6e22e">addBook</span>(book);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="8-triển-khai-và-bảo-trì">8. Triển Khai và Bảo Trì</h2>
+<h3 id="81-đóng-gói-ứng-dụng">8.1. Đóng Gói Ứng Dụng</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;artifactId&gt;</span>maven-assembly-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;archive&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;manifest&gt;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&lt;mainClass&gt;</span>com.library.LibraryApp<span style="color:#f92672">&lt;/mainClass&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;/manifest&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;/archive&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;descriptorRefs&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&lt;descriptorRef&gt;</span>jar-with-dependencies<span style="color:#f92672">&lt;/descriptorRef&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&lt;/descriptorRefs&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/build&gt;</span>
+</span></span></code></pre></div><h2 id="kết-luận">Kết Luận</h2>
+<p>Qua việc xây dựng ứng dụng quản lý thư viện, chúng ta đã thực hành nhiều khía cạnh quan trọng trong phát triển ứng dụng Java:</p>
+<ol>
+<li>Thiết kế cơ sở dữ liệu</li>
+<li>Xây dựng các lớp model</li>
+<li>Thao tác với CSDL qua DAO</li>
+<li>Xử lý logic nghiệp vụ</li>
+<li>Phát triển giao diện với JavaFX</li>
+<li>Quản lý giao dịch và logging</li>
+<li>Kiểm thử ứng dụng</li>
+<li>Đóng gói và triển khai</li>
+</ol>
+<p>Hy vọng bài viết này giúp bạn có cái nhìn tổng quan về quy trình phát triển một ứng dụng Java hoàn chỉnh. Hãy thử áp dụng những kiến thức này vào dự án của riêng bạn!</p>
+</div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Blog Của Tôi | Build with Hugo </p>
+    </footer>
+</body>
+</html>

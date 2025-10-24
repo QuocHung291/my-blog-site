@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog Của Tôi</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Blog Của Tôi</description>
+    <generator>Hugo -- 0.152.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Phần 1: Nhập Môn Lập Trình Java Cho Người Mới Bắt Đầu</title>
+      <link>http://localhost:1313/blog/my-first-post/</link>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-first-post/</guid>
+      <description>&lt;p&gt;Java là ngôn ngữ lập trình phổ biến và mạnh mẽ được sử dụng rộng rãi trong phát triển phần mềm doanh nghiệp.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần 2: Kiến Thức Cơ Bản Và Hướng Đối Tượng</title>
+      <link>http://localhost:1313/blog/my-third-post/</link>
+      <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-third-post/</guid>
+      <description>&lt;p&gt;Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần Cuối: Các Chủ Đề Nâng Cao và Lộ Trình Phát Triển</title>
+      <link>http://localhost:1313/blog/javascript4/</link>
+      <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript4/</guid>
+      <description>&lt;p&gt;Trong phần cuối cùng của chuỗi bài hướng dẫn JavaScript, chúng ta sẽ tìm hiểu về các chủ đề nâng cao và lập kế hoạch cho hành trình phát triển tiếp theo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần 3: Kiến Thức Cơ Bản Và Hướng Đối Tượng</title>
+      <link>http://localhost:1313/blog/my-fourth-post/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-fourth-post/</guid>
+      <description>&lt;p&gt;Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần 3: AJAX, API và Xử Lý Dữ Liệu</title>
+      <link>http://localhost:1313/blog/javascript3/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript3/</guid>
+      <description>&lt;p&gt;Ở phần này, chúng ta sẽ tìm hiểu cách JavaScript tương tác với server thông qua AJAX và API, cũng như các kỹ thuật xử lý dữ liệu phổ biến.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Liên Hệ</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>&lt;div style=&#34;text-align: center; margin: 2rem 0;&#34;&gt;
+    &lt;div style=&#34;width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 3px solid #3498db; box-shadow: 0 4px 8px rgba(0,0,0,0.2);&#34;&gt;
+        &lt;img src=&#34;./image/your-photo.jpg&#34; alt=&#34;Lâm Quốc Hưng&#34; style=&#34;width: 100%; height: 100%; object-fit: cover;&#34;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;kết-nối-với-tôi&#34;&gt;Kết Nối Với Tôi&lt;/h1&gt;
+&lt;p&gt;Xin chào! Tôi rất vui khi được kết nối với bạn. Nếu bạn có bất kỳ câu hỏi, góp ý, hoặc muốn trao đổi về công nghệ, đừng ngần ngại liên hệ với tôi nhé!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;email&#34;&gt;Email&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✉️ &lt;a href=&#34;mailto:lamquochung2910@gmail.com&#34;&gt;lamquochung2910@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-mạng-xã-hội&#34;&gt;🌐 Mạng Xã Hội&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;💬&lt;a href=&#34;https://www.facebook.com/lamquochung2910&#34;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💬&lt;a href=&#34;https://www.instagram.com/quochung.29/&#34;&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-lời-nhắn&#34;&gt;💭 Lời Nhắn&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Cảm ơn bạn đã ghé thăm blog của tôi! Mọi ý kiến đóng góp của bạn đều rất quý giá và sẽ giúp tôi cải thiện nội dung blog ngày càng tốt hơn. Hãy chia sẻ suy nghĩ của bạn về các bài viết, đề xuất chủ đề mới, hoặc chỉ đơn giản là trò chuyện về công nghệ. Tôi luôn sẵn sàng lắng nghe và học hỏi từ cộng đồng!&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Về Tôi</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;div align=&#34;center&#34;&gt;
+&lt;p&gt;&lt;img alt=&#34;Lâm Quốc Hưng&#34; loading=&#34;lazy&#34; src=&#34;./image/your-photo.jpg&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;xin-chào-&#34;&gt;Xin chào! 👋&lt;/h1&gt;
+&lt;p&gt;Tôi là &lt;strong&gt;Lâm Quốc Hưng&lt;/strong&gt;, một sinh viên năm cuối ngành Công nghệ thông tin, chuyên ngành Công nghệ phần mềm tại Trường Đại học Công nghệ TP.HCM (HUTECH). Với niềm đam mê công nghệ và khát khao chia sẻ kiến thức, tôi đã tạo nên blog này như một không gian để ghi lại hành trình học tập và phát triển của mình trong lĩnh vực lập trình.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần 4: Phát Triển Ứng Dụng Thực Tế</title>
+      <link>http://localhost:1313/blog/my-second-post/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-second-post/</guid>
+      <description>&lt;p&gt;Sau khi đã nắm vững các kiến thức cơ bản và nâng cao về Java, chúng ta sẽ áp dụng chúng vào việc phát triển các ứng dụng thực tế.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần Cuối: Lộ Trình Phát Triển Và Tài Nguyên Học Tập</title>
+      <link>http://localhost:1313/blog/my-fifth-post/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-fifth-post/</guid>
+      <description>&lt;p&gt;Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần 2: DOM và Sự Kiện Trong JavaScript</title>
+      <link>http://localhost:1313/blog/javascript2/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript2/</guid>
+      <description>&lt;p&gt;Sau khi đã nắm vững các kiến thức cơ bản về JavaScript, chúng ta sẽ tìm hiểu về DOM (Document Object Model) và cách xử lý sự kiện - hai khía cạnh quan trọng trong lập trình web động.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần 1: Làm Quen Với Lập Trình Web</title>
+      <link>http://localhost:1313/blog/javascript1/</link>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript1/</guid>
+      <description>&lt;p&gt;JavaScript là ngôn ngữ lập trình phổ biến nhất trong thế giới web, được sử dụng rộng rãi để tạo các trang web tương tác và động.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

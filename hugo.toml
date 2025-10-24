@@ -1,0 +1,13 @@
+baseURL = 'https://example.com/'
+relativeURLs = true 
+canonifyURLs = true 
+languageCode = 'en-us'
+title = 'Blog Của Tôi'
+theme = "PaperMod"
+
+[params]
+hero_image="/image/blog.jpg"
+customCSS = ["/css/custom.css"]
+
+[markup.goldmark.renderer]
+unsafe = true

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Programming on Blog Của Tôi</title>
+    <link>http://localhost:1313/tags/programming/</link>
+    <description>Recent content in Programming on Blog Của Tôi</description>
+    <generator>Hugo -- 0.152.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java Phần 1: Nhập Môn Lập Trình Java Cho Người Mới Bắt Đầu</title>
+      <link>http://localhost:1313/blog/my-first-post/</link>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-first-post/</guid>
+      <description>&lt;p&gt;Java là ngôn ngữ lập trình phổ biến và mạnh mẽ được sử dụng rộng rãi trong phát triển phần mềm doanh nghiệp.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần 2: Kiến Thức Cơ Bản Và Hướng Đối Tượng</title>
+      <link>http://localhost:1313/blog/my-third-post/</link>
+      <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-third-post/</guid>
+      <description>&lt;p&gt;Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần 3: Kiến Thức Cơ Bản Và Hướng Đối Tượng</title>
+      <link>http://localhost:1313/blog/my-fourth-post/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-fourth-post/</guid>
+      <description>&lt;p&gt;Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần 4: Phát Triển Ứng Dụng Thực Tế</title>
+      <link>http://localhost:1313/blog/my-second-post/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-second-post/</guid>
+      <description>&lt;p&gt;Sau khi đã nắm vững các kiến thức cơ bản và nâng cao về Java, chúng ta sẽ áp dụng chúng vào việc phát triển các ứng dụng thực tế.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java Phần Cuối: Lộ Trình Phát Triển Và Tài Nguyên Học Tập</title>
+      <link>http://localhost:1313/blog/my-fifth-post/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/my-fifth-post/</guid>
+      <description>&lt;p&gt;Java là một trong những ngôn ngữ lập trình phổ biến nhất thế giới và là sự lựa chọn tuyệt vời cho người mới bắt đầu học lập trình.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Web Development on Blog Của Tôi</title>
+    <link>http://localhost:1313/tags/web-development/</link>
+    <description>Recent content in Web Development on Blog Của Tôi</description>
+    <generator>Hugo -- 0.152.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript Phần Cuối: Các Chủ Đề Nâng Cao và Lộ Trình Phát Triển</title>
+      <link>http://localhost:1313/blog/javascript4/</link>
+      <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript4/</guid>
+      <description>&lt;p&gt;Trong phần cuối cùng của chuỗi bài hướng dẫn JavaScript, chúng ta sẽ tìm hiểu về các chủ đề nâng cao và lập kế hoạch cho hành trình phát triển tiếp theo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần 3: AJAX, API và Xử Lý Dữ Liệu</title>
+      <link>http://localhost:1313/blog/javascript3/</link>
+      <pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript3/</guid>
+      <description>&lt;p&gt;Ở phần này, chúng ta sẽ tìm hiểu cách JavaScript tương tác với server thông qua AJAX và API, cũng như các kỹ thuật xử lý dữ liệu phổ biến.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần 2: DOM và Sự Kiện Trong JavaScript</title>
+      <link>http://localhost:1313/blog/javascript2/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript2/</guid>
+      <description>&lt;p&gt;Sau khi đã nắm vững các kiến thức cơ bản về JavaScript, chúng ta sẽ tìm hiểu về DOM (Document Object Model) và cách xử lý sự kiện - hai khía cạnh quan trọng trong lập trình web động.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JavaScript Phần 1: Làm Quen Với Lập Trình Web</title>
+      <link>http://localhost:1313/blog/javascript1/</link>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/javascript1/</guid>
+      <description>&lt;p&gt;JavaScript là ngôn ngữ lập trình phổ biến nhất trong thế giới web, được sử dụng rộng rãi để tạo các trang web tương tác và động.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

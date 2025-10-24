@@ -1,0 +1,27 @@
+{{define "main"}}
+<section class="hero" {{with .Site.Params.hero_image}} style="background-image: url('{{.}}');" {{end}} >
+    <div class="container">
+        <h1 class="hero-title">Chào Mừng Đến Với Blog Của Tôi</h1>
+        <p class="hero-text">
+            Khám phá kho tàng bài viết và ý tưởng sáng tạo đa sắc màu!
+            Luôn bắt kịp xu hướng, học hỏi những mẹo hay và câu chuyện truyền cảm hứng.
+            Cùng khám phá, cùng phát triển và thỏa sức nuôi dưỡng đam mê của bạn.
+        </p>
+    </div>
+</section>
+
+<h1>Bài viết mới nhất</h1>
+{{range $i, $p := first 10 (where .Site.RegularPages "Type" "blog")}}
+<div class="blog-preview {{if modBool $i 2}}reverse{{end}}"   >
+    {{with $p.Params.image}}
+    <img src="{{.}}" alt="{{$p.Title}}">
+    {{end}}
+
+    <div class="content">
+        <h2>{{$p.Title}} </h2>
+        <p> {{$p.Summary}} </p>
+        <a href="{{$p.RelPermalink}}" class="read-more">Đọc Thêm →</a>
+    </div>
+</div>
+{{end}}
+{{end}}
