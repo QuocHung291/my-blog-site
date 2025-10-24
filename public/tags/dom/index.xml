@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>DOM on Blog Của Tôi</title>
-    <link>http://localhost:1313/tags/dom/</link>
+    <link>http://localhost:54635/tags/dom/</link>
     <description>Recent content in DOM on Blog Của Tôi</description>
     <generator>Hugo -- 0.152.1</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dom/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:54635/tags/dom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript Phần 2: DOM và Sự Kiện Trong JavaScript</title>
-      <link>http://localhost:1313/blog/javascript2/</link>
+      <link>http://localhost:54635/blog/javascript2/</link>
       <pubDate>Thu, 21 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/javascript2/</guid>
+      <guid>http://localhost:54635/blog/javascript2/</guid>
       <description>&lt;p&gt;Sau khi đã nắm vững các kiến thức cơ bản về JavaScript, chúng ta sẽ tìm hiểu về DOM (Document Object Model) và cách xử lý sự kiện - hai khía cạnh quan trọng trong lập trình web động.&lt;/p&gt;</description>
     </item>
   </channel>

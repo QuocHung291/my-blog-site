@@ -4,10 +4,10 @@ date: 2025-08-22
 draft: false
 ---
 
-<div align="center">
-
-![Lâm Quốc Hưng](/image/your-photo.jpg)
-
+<div style="text-align: center; margin: 2rem 0;">
+    <div style="width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 3px solid #3498db; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <img src="/image/your-photo.jpg" alt="Lâm Quốc Hưng" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
 </div>
 
 # Xin chào! 👋
